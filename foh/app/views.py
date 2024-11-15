@@ -8,7 +8,7 @@ def hey_name(request):
     if form.is_valid():
         name = form.cleaned_data['name']
         answer = f'Hey, {name}'
-        return render(request, "heyname.html", {"form": form, "name":  name})
+        return render(request, "heyname.html", {"form": form, "name":  answer})
     return render(request, "heyname.html", {"form": form})
 
 
@@ -19,9 +19,9 @@ def age_in(request):
     birthyear = form.cleaned_data["birthyear"]
     age = end - birthyear
     print(age)
-    return render(request, "age-in.html", {"form": form, "age": age})
+    return render(request, "age.html", {"form": form, "age": age})
   
-  return render(request, "age-in.html", {"form": form})
+  return render(request, "age.html", {"form": form})
 
 
 def order(request):

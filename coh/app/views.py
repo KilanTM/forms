@@ -4,6 +4,7 @@ from django.http.response import HttpResponse
 from app.forms import Warmup2, Logic2, String2, List2
 from app.fix_teen import fix_teen
 # Create your views here.
+
 def warmup_2(request):
   form = Warmup2(request.GET)
   if form.is_valid():
@@ -24,6 +25,8 @@ def warmup_2(request):
         answer += string[0:3] 
     return render(request, "warmup2.html", {"form": form, "string": string, "number": n, "answer": answer})
   return render(request, "warmup2.html", {"form": form})
+
+
 def logic_2(request):
   form = Logic2(request.GET)
   if form.is_valid():
@@ -35,8 +38,9 @@ def logic_2(request):
     new_c = fix_teen(c)
     total = new_a + new_b + new_c
     return render(request, "logic2.html", {"form": form, "a": a, "b": b, "c": c, "total": total})
-  
   return render(request, "logic2.html", {"form": form })
+
+
 def string_2(request):
   form = String2(request.GET)
   if form.is_valid():
@@ -46,6 +50,8 @@ def string_2(request):
       return render(request, "string2.html", { "form": form, "string":string, "answer": answer })
   answer = False
   return render(request, "string2.html", { "form":form, "answer": answer })
+
+
 def list_2(request):
   form = List2(request.GET)
   if form.is_valid():
